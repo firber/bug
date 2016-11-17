@@ -14,7 +14,7 @@ def getLinks(pageUrl):
     except AttributeError:
         print("未在该页面找到主题词！")
 
-    for link in bs0bj.find("body").findAll("a", href=re.compile("^(\/subview\/|\/view\/)[0-9\/]*")):
+    for link in bs0bj.find("body").find_all("a", href=re.compile("^(\/subview\/|\/view\/)[0-9\/]*")):
         if 'href' in link.attrs:
             if link.attrs['href'] not in pages:
                 newpage = link.attrs['href']
